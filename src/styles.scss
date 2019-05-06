@@ -1,0 +1,53 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+// fonts
+$primary-font: "Roboto", sans-serif;
+
+// colors
+$primary-color: #5f6368;
+$secondary-color: #f2f2f2;
+$black: #000;
+$dark-gray: #222;
+$light-gray: #c6c6c6;
+
+// general
+.content {
+  margin: 0 auto;
+  width: 960px;
+  padding-top: 150px;
+  font-family: $primary-font;
+}
+
+.h1 {
+  margin-bottom: 75px;
+}
+
+.button {
+  display: block;
+  padding: 20px;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#f1f1f1));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+  background-color: $secondary-color;
+  border: 1px solid $secondary-color;
+  border-radius: 4px;
+  color: $primary-color;
+  cursor: pointer;
+  text-align: center;
+  &:hover {
+    background-color: #f8f8f8;
+    background-image: linear-gradient(top, #f8f8f8, #f1f1f1);
+    background-image: -o-linear-gradient(top, #f8f8f8, #f1f1f1);
+    border: 1px solid $light-gray;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    color: $dark-gray;
+  }
+}
+
+.spacer{
+  padding:0 15px;
+}

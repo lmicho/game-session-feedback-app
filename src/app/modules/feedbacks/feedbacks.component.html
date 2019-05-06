@@ -1,0 +1,25 @@
+<div class="content">
+  <h1 class="h1">Add a feedback <span *ngIf="session">for {{ session.name }}</span></h1>
+
+  <p *ngIf="session" class="date">Date : {{session.Created_date | date:'medium'}}</p>
+
+  <p class="message--error" *ngIf="customErrorMessage">{{customErrorMessage}}</p>
+  <p class="message--success" *ngIf="customSuccessMessage">{{customSuccessMessage}}</p>
+
+  <div class="form">
+    <mat-form-field class="form__rating">
+      <mat-label>Rating</mat-label>
+      <mat-select (selectionChange)="selectRating($event.value)" [value]="defaultOption" required>
+        <mat-option *ngFor="let rating of ratings" [value]="rating.value">
+          {{rating.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form__comment">
+      <textarea matInput placeholder="Leave a comment (optional)" #comment></textarea>
+    </mat-form-field>
+    <button mat-button (click)="addFeedback()" class="form__send">Send</button>
+  </div>
+  
+</div>

@@ -1,0 +1,35 @@
+<div class="content">
+  <h1 class="h1">Feedback <span *ngIf="session">for {{ session.name }}</span></h1>
+
+  <p *ngIf="session" class="date">Date : {{session.Created_date | date:'medium'}}</p>
+  <h3 *ngIf="averageRating" class="h3">Average Rating : {{averageRating}}/5</h3>
+
+  <mat-form-field>
+    <mat-label>Rating</mat-label>
+    <mat-select (selectionChange)="selectRating($event.value)" [value]="defaultOption">
+      <mat-option *ngFor="let rating of ratings" [value]="rating.value">
+        {{rating.label}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="box-container">
+    <div *ngFor="let feedback of feedbacks">
+      <div class="box">
+        <h2 class="h2">Rating : {{feedback.rating}}/5</h2>
+        <p>Comment : {{feedback.comment}}<span *ngIf="!feedback.comment">No comment</span></p>
+      </div>
+    </div>
+    <div *ngIf="feedbacks.length < 1">
+      <h2 class="h2">
+        <span class="spacer">-</span>
+        There is no feedback yet <span *ngIf="selectedOption">.. or there is no feedback rated {{selectedOption}}
+          because this
+          game was {{noFeedbackMessage}} </span>.
+        <span class="spacer">-</span>
+      </h2>
+    </div>
+  </div>
+
+  <a *ngIf="session" routerLink="/feedbacks/{{session._id}}">Add a feedback</a>
+</div>

@@ -1,0 +1,28 @@
+@import "../../../styles.scss";
+
+.date {
+  color: $primary-color;
+  text-align: left;
+}
+
+.message {
+  font-style: italic;
+  &--error {
+    color: red;
+  }
+}
+
+.form {
+  text-align: left;
+  .form__rating {
+    width: 30%;
+  }
+  .form__comment {
+    width: 100%;
+  }
+
+  .form__send {
+    @extend .button;
+    padding: 5px;
+  }
+}
